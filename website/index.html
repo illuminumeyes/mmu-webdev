@@ -1,31 +1,82 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Portfolio - About Me</title>
-    </head>
-    <body>
-        <header id="header">
-            <h1 id="site-title">My Portfolio</h1>
-            <nav id="navbar">
-                <ul id="nav-list">
-                    <li><a href="index.html">About Me</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                </ul>
-            </nav>
-        </header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Marías - Fan Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">The Marías</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="latest-releases.html" class="nav-link">Latest Releases</a></li>
+                <li class="nav-item"><a href="discography.html" class="nav-link">Discography</a></li>
+                <li class="nav-item"><a href="upcoming-tours.html" class="nav-link">Tours & Updates</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <main id="main-content">
-            <section id="about-section">
-                <h2 id="about-title">About Me</h2>
-                <img id="profile-image" src="images/white-monkey-confused.gif" alt="Profile Picture">
-                <h3 id="name">Chi Wai Wan</h3>
-                <p id="bio">Hello! I am a passionate software developer with a strong interest in web development and computer science. I am dedicated to continuous learning and enjoy solving complex problems through innovative solutions. With experience in various programming languages and frameworks, I strive to create meaningful applications that make a positive impact.</p>
-            </section>
-        </main>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>The Marías</h1>
+            <p>Atmospheric Dream-Pop from LA</p>
+            <p class="hero-subtitle">Explore a world of cinematic, dreamy melodies</p>
+        </div>
+    </header>
 
-        <footer id="footer">
-            <p id="copyright">&copy; 2026 My Portfolio. All rights reserved.</p>
-        </footer>
-    </body>
+    <!-- Main Content -->
+    <main>
+        <!-- Popular Songs Section -->
+        <section class="popular-songs">
+            <div class="container">
+                <h2>Popular Tracks</h2>
+                <div id="spotify-tracks" class="tracks-grid">
+                    <!-- Spotify tracks will be loaded here -->
+                    <div class="loading">Loading popular tracks...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <h2>About The Marías</h2>
+                <p>The Marías are an American dream pop duo from Los Angeles, consisting of singer María Zardoya and producer/guitarist Zeke Rosenberg. Their ethereal sound combines lush atmospherics, emotional vocals, and hypnotic production to create a unique sonic experience that transports listeners to another dimension.</p>
+                <p>With critically acclaimed albums and an ever-growing fanbase, The Marías continue to push the boundaries of contemporary pop music while maintaining an intimate, cinematic quality in their work.</p>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Stay Updated</h2>
+                <p>Never miss announcements about new releases and tour dates</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div id="formMessage" class="form-message"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 The Marías Fan Page. Not affiliated with the official band.</p>
+            <div class="social-links">
+                <a href="https://open.spotify.com/artist/2sSGPbdZJkaSE2AbcGOACx" target="_blank">Spotify</a>
+                <a href="https://www.instagram.com/themarias/?hl=en" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="spotify.js"></script>
+    <script src="form-handler.js"></script>
+</body>
 </html>
