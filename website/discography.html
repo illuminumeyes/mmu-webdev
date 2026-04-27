@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discography - The Marías</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">The Marías</a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="discography.html" class="nav-link active">Discography</a></li>
+            <li><a href="upcoming-tours.html" class="nav-link">Tours & Updates</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="page-header">
+    <h1>Discography</h1>
+    <p>Explore all albums and EPs</p>
+</header>
+
+<main>
+    <section class="discography-section">
+        <div class="container">
+
+            <h2>Albums & EPs</h2>
+
+            <!-- API OPTION -->
+            <div id="discography-api" class="discography-grid">
+                <div class="loading">Loading discography...</div>
+            </div>
+
+            <!-- STATIC CONTENT -->
+            <article class="album-card">
+                <img src="images/cinema.jpg" alt="Cinema Album Cover">
+                <h3>Cinema</h3>
+                <p>2021</p>
+            </article>
+
+            <article class="album-card">
+                <img src="images/superclean.jpg" alt="Superclean Album Cover">
+                <h3>Superclean Vol. I & II</h3>
+                <p>2017–2018</p>
+            </article>
+
+            <!-- LIST (for coursework requirement) -->
+            <section class="track-list">
+                <h3>Popular Tracks</h3>
+                <ul>
+                    <li>Hush</li>
+                    <li>Only in My Dreams</li>
+                    <li>Care For You</li>
+                </ul>
+            </section>
+
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 The Marías Fan Page</p>
+</footer>
+
+<script src="discography.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours & Updates - The Marías</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">The Marías</a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="discography.html" class="nav-link">Discography</a></li>
+            <li><a href="upcoming-tours.html" class="nav-link active">Tours & Updates</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="page-header">
+    <h1>Upcoming Tours</h1>
+    <p>See where The Marías are performing next</p>
+</header>
+
+<main>
+    <section class="tour-section">
+        <div class="container">
+
+            <h2>Tour Dates</h2>
+
+            <!-- API AREA -->
+            <div id="tour-api" class="tour-list">
+                <div class="loading">Loading tour dates...</div>
+            </div>
+
+            <!-- STATIC TABLE (good for marks) -->
+            <table class="tour-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>City</th>
+                        <th>Venue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>June 12, 2026</td>
+                        <td>Los Angeles</td>
+                        <td>Hollywood Bowl</td>
+                    </tr>
+                    <tr>
+                        <td>June 20, 2026</td>
+                        <td>New York</td>
+                        <td>Madison Square Garden</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+
+    <!-- UPDATES / NEWS -->
+    <section class="updates-section">
+        <div class="container">
+            <h2>Latest Updates</h2>
+
+            <article class="update-card">
+                <h3>New Album Tour Announced</h3>
+                <p>The Marías will tour globally following their latest album release.</p>
+            </article>
+
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 The Marías Fan Page</p>
+</footer>
+
+<script src="tours.js"></script>
+</body>
+</html>

@@ -13,7 +13,6 @@
             <a href="index.html" class="nav-logo">The Marías</a>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="latest-releases.html" class="nav-link">Latest Releases</a></li>
                 <li class="nav-item"><a href="discography.html" class="nav-link">Discography</a></li>
                 <li class="nav-item"><a href="upcoming-tours.html" class="nav-link">Tours & Updates</a></li>
             </ul>
@@ -52,18 +51,48 @@
         </section>
 
         <!-- Newsletter Section -->
-        <section class="newsletter">
-            <div class="container">
-                <h2>Stay Updated</h2>
-                <p>Never miss announcements about new releases and tour dates</p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-                <div id="formMessage" class="form-message"></div>
+        <section class="newsletter" id="mailing-list">
+    <div class="container">
+
+        <h2>Join the Mailing List</h2>
+        <p>Get updates on new releases, tours, and announcements</p>
+
+        <form class="newsletter-form" id="newsletterForm">
+
+            <!-- NAME FIELD (required for coursework) -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="Enter your name" 
+                    required
+                >
             </div>
-        </section>
-    </main>
+
+            <!-- EMAIL FIELD -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="Enter your email" 
+                    required
+                >
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" id="submitBtn">Subscribe</button>
+
+        </form>
+
+        <!-- MESSAGE AREA (for JS feedback) -->
+        <div id="formMessage" class="form-message"></div>
+
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
