@@ -30,12 +30,13 @@
 
             <h2>Tour Dates</h2>
 
-            <!-- API AREA -->
             <div id="tour-api" class="tour-list">
-                <div class="loading">Loading tour dates...</div>
+                <div class="no-tours-message">
+                    <p>No upcoming tours scheduled at this time.</p>
+                    <p>We'll be back on the road soon! Stay tuned for updates.</p>
+                </div>
             </div>
 
-            <!-- STATIC TABLE (good for marks) -->
             <table class="tour-table">
                 <thead>
                     <tr>
@@ -46,14 +47,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>June 12, 2026</td>
-                        <td>Los Angeles</td>
-                        <td>Hollywood Bowl</td>
-                    </tr>
-                    <tr>
-                        <td>June 20, 2026</td>
-                        <td>New York</td>
-                        <td>Madison Square Garden</td>
+                        <td colspan="3" style="text-align: center; color: #666;">
+                            No upcoming tour dates available
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -61,7 +57,6 @@
         </div>
     </section>
 
-    <!-- UPDATES / NEWS -->
     <section class="updates-section">
         <div class="container">
             <h2>Latest Updates</h2>
@@ -79,6 +74,5 @@
     <p>&copy; 2026 The Marías Fan Page</p>
 </footer>
 
-<script src="tours.js"></script>
 </body>
 </html>
