@@ -5,33 +5,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
-/* ---------------------------------------------------------
-   CSS Variables
---------------------------------------------------------- */
-:root {
-    --navy:        #0d1117;
-    --navy-mid:    #141b26;
-    --navy-light:  #1e2a3a;
-    --amber:       #c8935a;
-    --amber-light: #e0b080;
-    --cream:       #f5ede0;
-    --cream-dim:   #d9c9b5;
-    --mauve:       #9b7fa6;
-    --mauve-light: #c3a8cc;
-    --text-body:   #b8c4d4;
-    --text-muted:  #6b7f96;
-
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body:    'DM Sans', sans-serif;
-
-    --transition: 0.3s ease;
-    --radius:     6px;
-    --max-width:  1100px;
-}
-
-/* ---------------------------------------------------------
-   Reset & Base
---------------------------------------------------------- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -43,9 +16,9 @@ html {
 }
 
 body {
-    background-color: var(--navy);
-    color: var(--text-body);
-    font-family: var(--font-body);
+    background-color: #0d1117;
+    color: #b8c4d4;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     font-size: 1rem;
     line-height: 1.7;
@@ -66,19 +39,14 @@ ul {
     list-style: none;
 }
 
-/* ---------------------------------------------------------
-   Utility
---------------------------------------------------------- */
 .container {
-    max-width: var(--max-width);
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* ---------------------------------------------------------
-   Navigation
---------------------------------------------------------- */
-nav.navbar {
+/* Nav */
+nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -89,11 +57,8 @@ nav.navbar {
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(200, 147, 90, 0.12);
     padding: 1.1rem 0;
-    transition: background var(--transition);
-}
-
-.nav-container {
-    max-width: var(--max-width);
+    transition: background 0.3s ease;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
@@ -102,16 +67,16 @@ nav.navbar {
 }
 
 .nav-logo {
-    font-family: var(--font-display);
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 0.06em;
-    color: var(--amber-light);
-    transition: color var(--transition);
+    color: #e0b080;
+    transition: color 0.3s ease;
 }
 
 .nav-logo:hover {
-    color: var(--cream);
+    color: #f5ede0;
 }
 
 .nav-menu {
@@ -120,45 +85,44 @@ nav.navbar {
     align-items: center;
 }
 
-.nav-item {
+nav li {
     list-style: none;
 }
 
-.nav-link {
+nav a {
     font-size: 0.82rem;
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--text-muted);
-    transition: color var(--transition);
+    color: #6b7f96;
+    transition: color 0.3s ease;
     position: relative;
     padding-bottom: 2px;
 }
 
-.nav-link::after {
+nav a::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 0;
     height: 1px;
-    background: var(--amber);
-    transition: width var(--transition);
+    background: #c8935a;
+    transition: width 0.3s ease;
 }
 
-.nav-link:hover,
-.nav-link.active {
-    color: var(--amber-light);
+nav a:hover,
+.active {
+    color: #e0b080;
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
+nav a:hover::after,
+nav a.active::after {
     width: 100%;
 }
 
-/* ---------------------------------------------------------
-   Hero Header
---------------------------------------------------------- */
+/* Hero  */
+
 header.hero {
     position: relative;
     min-height: 100vh;
@@ -171,7 +135,7 @@ header.hero {
     background:
         radial-gradient(ellipse 80% 60% at 50% 40%, rgba(155, 127, 166, 0.15) 0%, transparent 60%),
         radial-gradient(ellipse 50% 40% at 20% 80%, rgba(200, 147, 90, 0.08) 0%, transparent 50%),
-        linear-gradient(180deg, var(--navy) 0%, #0f1820 100%);
+        linear-gradient(180deg, #0d1117 0%, #0f1820 100%);
 }
 
 header.hero::before,
@@ -213,11 +177,11 @@ header.hero::after {
 }
 
 .hero-content h1 {
-    font-family: var(--font-display);
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(3.5rem, 10vw, 7.5rem);
     font-weight: 300;
     letter-spacing: 0.08em;
-    color: var(--cream);
+    color: #f5ede0;
     line-height: 1;
     margin-bottom: 1.2rem;
 }
@@ -227,12 +191,12 @@ header.hero::after {
     font-weight: 300;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--amber-light);
+    color: #e0b080;
     margin-bottom: 0.5rem;
 }
 
 .hero-subtitle {
-    color: var(--text-muted) !important;
+    color: #6b7f96 !important;
     font-size: 0.88rem !important;
     letter-spacing: 0.1em !important;
 }
@@ -242,18 +206,16 @@ header.hero::after {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------------------------------------------------------
-   Sections — shared
---------------------------------------------------------- */
+/* Sections */
 section {
     padding: 5rem 0;
 }
 
 section h2 {
-    font-family: var(--font-display);
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 300;
-    color: var(--cream);
+    color: #f5ede0;
     letter-spacing: 0.04em;
     margin-bottom: 0.5rem;
 }
@@ -263,16 +225,14 @@ section h2::after {
     display: block;
     width: 48px;
     height: 1px;
-    background: var(--amber);
+    background: #c8935a;
     margin-top: 0.8rem;
     margin-bottom: 2rem;
 }
 
-/* ---------------------------------------------------------
-   Popular Tracks
---------------------------------------------------------- */
+/* Popular Tracks*/
 .popular-songs {
-    background: var(--navy-mid);
+    background: #141b26;
     border-top: 1px solid rgba(200, 147, 90, 0.08);
     border-bottom: 1px solid rgba(200, 147, 90, 0.08);
 }
@@ -284,14 +244,14 @@ section h2::after {
 }
 
 .track-card {
-    background: var(--navy-light);
+    background: #1e2a3a;
     border: 1px solid rgba(200, 147, 90, 0.1);
-    border-radius: var(--radius);
+    border-radius: 6px;
     padding: 1.2rem;
     display: flex;
     align-items: center;
     gap: 1rem;
-    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
@@ -315,7 +275,7 @@ section h2::after {
 
 .track-name {
     font-weight: 500;
-    color: var(--cream);
+    color: #f5ede0;
     font-size: 0.95rem;
     white-space: nowrap;
     overflow: hidden;
@@ -324,7 +284,7 @@ section h2::after {
 
 .track-album {
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: #6b7f96;
     margin-top: 2px;
     white-space: nowrap;
     overflow: hidden;
@@ -332,7 +292,7 @@ section h2::after {
 }
 
 .loading {
-    color: var(--text-muted);
+    color: #6b7f96;
     font-size: 0.9rem;
     letter-spacing: 0.08em;
     grid-column: 1 / -1;
@@ -346,11 +306,9 @@ section h2::after {
     50%       { opacity: 1; }
 }
 
-/* ---------------------------------------------------------
-   About section
---------------------------------------------------------- */
+/* About */
 .about {
-    background: var(--navy);
+    background: #0d1117;
 }
 
 .about .container {
@@ -360,7 +318,7 @@ section h2::after {
 .about p {
     font-size: 1.05rem;
     line-height: 1.85;
-    color: var(--text-body);
+    color: #b8c4d4;
     margin-bottom: 1.2rem;
 }
 
@@ -368,13 +326,11 @@ section h2::after {
     margin-bottom: 0;
 }
 
-/* ---------------------------------------------------------
-   Newsletter / Mailing List
---------------------------------------------------------- */
+/* Mailing List*/
 .newsletter {
     background:
         radial-gradient(ellipse 70% 50% at 50% 50%, rgba(155, 127, 166, 0.1) 0%, transparent 70%),
-        var(--navy-mid);
+        #141b26;
     border-top: 1px solid rgba(200, 147, 90, 0.08);
     border-bottom: 1px solid rgba(200, 147, 90, 0.08);
     text-align: center;
@@ -385,7 +341,7 @@ section h2::after {
 }
 
 .newsletter > .container > p {
-    color: var(--text-muted);
+    color: #6b7f96;
     font-size: 0.95rem;
     letter-spacing: 0.04em;
     margin-bottom: 2rem;
@@ -410,23 +366,23 @@ section h2::after {
     min-width: 180px;
     background: rgba(30, 42, 58, 0.8);
     border: 1px solid rgba(200, 147, 90, 0.2);
-    border-radius: var(--radius);
-    color: var(--cream);
-    font-family: var(--font-body);
+    border-radius: 6px;
+    color: #f5ede0;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     padding: 0.85rem 1.1rem;
     outline: none;
-    transition: border-color var(--transition), box-shadow var(--transition);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .newsletter-form input[type="text"]::placeholder,
 .newsletter-form input[type="email"]::placeholder {
-    color: var(--text-muted);
+    color: #6b7f96;
 }
 
 .newsletter-form input[type="text"]:focus,
 .newsletter-form input[type="email"]:focus {
-    border-color: var(--amber);
+    border-color: #c8935a;
     box-shadow: 0 0 0 3px rgba(200, 147, 90, 0.12);
 }
 
@@ -436,24 +392,24 @@ section h2::after {
 }
 
 .newsletter-form button[type="submit"] {
-    background: var(--amber);
-    color: var(--navy);
-    font-family: var(--font-body);
+    background: #c8935a;
+    color: #0d1117;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.82rem;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     border: none;
-    border-radius: var(--radius);
+    border-radius: 6px;
     padding: 0.9rem 2rem;
     cursor: pointer;
-    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     align-self: center;
     min-width: 160px;
 }
 
 .newsletter-form button[type="submit"]:hover {
-    background: var(--amber-light);
+    background: #e0b080;
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(200, 147, 90, 0.35);
 }
@@ -468,7 +424,7 @@ section h2::after {
     transform: none;
 }
 
-/* Feedback message */
+/* Form */
 #formMessage.form-message {
     min-height: 1.4rem;
     margin-top: 0.8rem;
@@ -490,9 +446,7 @@ section h2::after {
     color: #e07070;
 }
 
-/* ---------------------------------------------------------
-   Footer
---------------------------------------------------------- */
+/* Footer */
 footer.footer {
     background: #080d13;
     border-top: 1px solid rgba(200, 147, 90, 0.08);
@@ -500,7 +454,7 @@ footer.footer {
 }
 
 .footer-content {
-    max-width: var(--max-width);
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
@@ -512,7 +466,7 @@ footer.footer {
 
 .footer-content p {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: #6b7f96;
     letter-spacing: 0.04em;
 }
 
@@ -525,12 +479,12 @@ footer.footer {
     font-size: 0.8rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-muted);
-    transition: color var(--transition);
+    color: #6b7f96;
+    transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: var(--amber-light);
+    color: #e0b080;
 }
 
 /* ---------------------------------------------------------
@@ -543,11 +497,11 @@ footer.footer {
 }
 
 .album-card {
-    background: var(--navy-light);
+    background: #1e2a3a;
     border: 1px solid rgba(200, 147, 90, 0.08);
-    border-radius: var(--radius);
+    border-radius: 6px;
     overflow: hidden;
-    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .album-card:hover {
@@ -560,65 +514,6 @@ footer.footer {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-}
-
-.album-info {
-    padding: 1.1rem 1.2rem;
-}
-
-.album-title {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    color: var(--cream);
-    font-weight: 400;
-    margin-bottom: 0.2rem;
-}
-
-.album-year {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.8rem;
-}
-
-.album-tracklist {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 1rem;
-}
-
-.album-tracklist li {
-    font-size: 0.82rem;
-    color: var(--text-body);
-    padding: 0.3rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    display: flex;
-    gap: 0.6rem;
-}
-
-.album-tracklist li .track-num {
-    color: var(--text-muted);
-    min-width: 1.2rem;
-    font-variant-numeric: tabular-nums;
-}
-
-.spotify-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--amber);
-    border: 1px solid rgba(200, 147, 90, 0.3);
-    border-radius: 40px;
-    padding: 0.4rem 1rem;
-    transition: background var(--transition), color var(--transition);
-}
-
-.spotify-btn:hover {
-    background: var(--amber);
-    color: var(--navy);
 }
 
 /* ---------------------------------------------------------
@@ -643,7 +538,7 @@ footer.footer {
         gap: 1.2rem;
     }
 
-    .nav-link {
+    nav a {
         font-size: 0.75rem;
         letter-spacing: 0.07em;
     }

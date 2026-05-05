@@ -56,7 +56,7 @@ async function handleSubmit(e, form, nameInput, emailInput, messageDiv) {
     submitBtn.textContent = "Submitting...";
 
     try {
-        // API call
+
         var response = await fetch(
             "https://mudfoot.doc.stu.mmu.ac.uk/ash/api/mailinglist",
             {
@@ -77,12 +77,12 @@ async function handleSubmit(e, form, nameInput, emailInput, messageDiv) {
             throw new Error(data.message || "Something went wrong.");
         }
 
-        // ✅ Success
+
         showMessage(messageDiv, "Successfully subscribed to the mailing list!", false);
         form.reset();
 
     } catch (error) {
-        // ❌ Error
+
         showMessage(messageDiv, "Error: " + error.message, true);
     } finally {
         submitBtn.disabled = false;
