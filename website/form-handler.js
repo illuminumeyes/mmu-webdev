@@ -62,7 +62,6 @@ function submitToMailingList(name, email) {
 
     fetch(API_URL, {
         method: "POST",
-        // headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: "Sam", email: email })
     })
     .then(onResponse)
