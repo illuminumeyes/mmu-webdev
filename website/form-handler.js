@@ -11,13 +11,13 @@ function init() {
     });
 }
 
-// Email validation
+
 function isValidEmail(email) {
     var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
 
-// Display message to user
+
 function showMessage(messageDiv, message, isError) {
     messageDiv.textContent = message;
 
@@ -28,14 +28,14 @@ function showMessage(messageDiv, message, isError) {
     }
 }
 
-// Handle form submission
+
 async function handleSubmit(e, form, nameInput, emailInput, messageDiv) {
     e.preventDefault();
 
     var name = nameInput.value.trim();
     var email = emailInput.value.trim();
 
-    // 🔍 Validation
+    
     if (name === "") {
         showMessage(messageDiv, "Please enter your name.", true);
         return;
