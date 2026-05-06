@@ -62,7 +62,7 @@ function submitToMailingList(name, email) {
 
     fetch(API_URL, {
         method: "POST",
-        body: JSON.stringify({ name: "Sam", email: email })
+        body: JSON.stringify({ name: name, email: email })
     })
     .then(onResponse)
     .then(onSuccess)
