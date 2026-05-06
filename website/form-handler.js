@@ -1,91 +1,99 @@
-document.addEventListener("DOMContentLoaded", init);
+const API_URL = "https://mudfoot.doc.stu.mmu.ac.uk/ash/api/mailinglist";
+ 
+const NAME_REGEX  = /^[A-Za-z\s'-]+$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-function init() {
-    var form = document.getElementById("newsletterForm");
-    var nameInput = document.getElementById("name");
-    var emailInput = document.getElementById("email");
-    var messageDiv = document.getElementById("formMessage");
 
-    form.addEventListener("submit", function (e) {
-        handleSubmit(e, form, nameInput, emailInput, messageDiv);
+function validateName(name){
+    return name.length > 0 && NAME_REGEX.test(name);
+}
+
+function validateEmail(email){
+    return EMAIL_REGEX.test(email);
+}
+
+function showMessage(message, isError) {
+    let messageDiv = document.getElementById("formMessage");
+
+    messageDiv.textContent = message;
+    messageDiv.classList.add("visible");
+
+    if (isError) {
+        messageDiv.className = "form-message visible error";
+    } else {
+        messageDiv.className = "form-message visible success";
+    }
+}
+
+function clearMessage() {
+    let messageDiv = document.getElementById("formMessage");
+    messageDiv.textContent = "";
+    messageDiv.className = "form-message";
+}
+
+function onResponse(response) {
+    return response.json().then(function(data) {
+        if (!response.ok) {
+            throw new Error(data.message || "Server error: " + response.status);
+        }
+        return data;
     });
 }
 
-
-function isValidEmail(email) {
-    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
+function onSuccess(data) {
+    showMessage(data.message || "Successfully subscribed!", "success");
+    document.getElementById("newsletterForm").reset();
 }
 
-
-function showMessage(messageDiv, message, isError) {
-    messageDiv.textContent = message;
-
-    if (isError) {
-        messageDiv.className = "form-message error";
-    } else {
-        messageDiv.className = "form-message success";
-    }
+function onError(error) {
+    showMessage("Error: " + error.message, "error");
 }
 
+function onFinally() {
+    let submitBtn = document.getElementById("submitBtn");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Subscribe";
+}
 
-async function handleSubmit(e, form, nameInput, emailInput, messageDiv) {
-    e.preventDefault();
-
-    var name = nameInput.value.trim();
-    var email = emailInput.value.trim();
-
-    
-    if (name === "") {
-        showMessage(messageDiv, "Please enter your name.", true);
-        return;
-    }
-
-    if (email === "") {
-        showMessage(messageDiv, "Please enter your email.", true);
-        return;
-    }
-
-    if (!isValidEmail(email)) {
-        showMessage(messageDiv, "Please enter a valid email address.", true);
-        return;
-    }
-
-    var submitBtn = form.querySelector("button");
+function submitToMailingList(name, email) {
+    let submitBtn = document.getElementById("submitBtn");
     submitBtn.disabled = true;
     submitBtn.textContent = "Submitting...";
 
-    try {
-
-        var response = await fetch(
-            "https://mudfoot.doc.stu.mmu.ac.uk/ash/api/mailinglist",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email
-                })
-            }
-        );
-
-        var data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(data.message || "Something went wrong.");
-        }
-
-
-        showMessage(messageDiv, "Successfully subscribed to the mailing list!", false);
-        form.reset();
-
-    } catch (error) {
-
-        showMessage(messageDiv, "Error: " + error.message, true);
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Subscribe";
-    }
+    fetch(API_URL, {
+        method: "POST",
+        // headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: "Sam", email: email })
+    })
+    .then(onResponse)
+    .then(onSuccess)
+    .catch(onError)
+    .finally(onFinally);
 }
+
+function handleSubmit(e) {
+    e.preventDefault();
+    clearMessage();
+ 
+    let name  = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+ 
+    if (!validateName(name)) {
+        showMessage("Please enter a valid name.", "error");
+        return;
+    }
+ 
+    if (!validateEmail(email)) {
+        showMessage("Please enter a valid email address.", "error");
+        return;
+    }
+ 
+    submitToMailingList(name, email);
+}
+
+
+function init() {
+    document.getElementById("newsletterForm").addEventListener("submit", handleSubmit);
+}
+
+document.addEventListener("DOMContentLoaded", init);
